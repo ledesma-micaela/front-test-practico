@@ -1,0 +1,19 @@
+<app-search-bar [searchValue]="searchParam" (searchAccion)="searchItems($event)"></app-search-bar>
+
+<div *ngIf="!isLoading && !hasError" class="search-results">
+  <p class="search-results--breadcrumb">
+    <span *ngFor="let category of categories; let last = last">
+      {{ category }}
+      <img *ngIf="!last" src="assets/icons/icon-chevron-right.svg" alt="Chevron right icon" width="16" height="16">
+    </span>
+  </p>
+  <app-items-list  [items]="currentItems" (clickAccion)="itemClick($event)"></app-items-list>
+</div>
+
+<div *ngIf="isLoading && !hasError" class="loader-container">
+  <div class="loader"></div>
+</div>
+
+<div class="error" *ngIf="!isLoading && hasError">
+  <p>Error al obtener items</p>
+</div>

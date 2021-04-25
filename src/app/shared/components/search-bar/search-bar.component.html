@@ -1,0 +1,13 @@
+<nav class="search-bar">
+  <img src="assets/icons/logo.png" alt="Company logo" class="search-bar--logo">
+  <form class="search-bar--form" [formGroup]="formSearch">
+    <input type="text"
+          placeholder="Nunca dejes de buscar"
+          formControlName="search"
+          class="search-bar--form-input"
+          (keydown.enter)="clickSearch()">
+    <button type="button" class="search-bar--form-button" (click)="clickSearch()">
+      <img src="assets/icons/icon-search.svg" alt="Search icon">
+    </button>
+  </form>
+</nav>

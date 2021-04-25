@@ -1,0 +1,21 @@
+<div class="items-list">
+  <ul *ngIf="hasItems">
+    <li *ngFor="let item of items; let last = last" (click)="itemClick(item)">
+      <div class="items-list--item-container" [ngClass]="{'last-child': last}">
+        <img [src]="item.picture" [alt]="item.title" width="160" height="160" class="items-list--item-image">
+        <div class="items-list--details">
+          <h1 class="items-list--details-price">
+            {{ item.price.currency | currencySymbol }} {{ item.price.amount  | number: '1.0-0':'es-AR'  }}
+            <img *ngIf="item.free_shipping" src="assets/icons/icon-shipping.svg" alt="Free shipping icon" class="items-list--details-icon">
+          </h1>
+          <p class="items-list--details-title">{{ item.title }}</p>
+        </div>
+        <span class="items-list--item-address">{{ item.address_state }}</span>
+      </div>
+    </li>
+  </ul>
+
+  <div *ngIf="!hasItems" class="items-list--empty">
+    <p>No se encontraron items para la busqueda ingresada</p>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+@import '~src/assets/colors';
+
+:host {
+  width: 80%;
+
+  .item-card {
+    background-color: $white;
+    margin: 0 auto;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+
+    &--details {  
+      display: flex;
+      justify-content: space-evenly;
+
+      &-container {
+        padding: 10px;
+        width: 40%;
+      }
+  
+      &-price {
+        display: flex;
+        font-size: 28px;
+
+        span {
+          font-size: 16px;
+        }
+      }
+  
+      &-title {
+        font-size: 20px;
+      }
+      
+      &-icon {
+        width: 18px;
+        height: 18px;
+        background: $green;
+        border-radius: 50%;
+        padding: 2px;
+        display: flex;
+        align-self: center;
+        margin-left: 10px;
+      }
+
+      &-condition {
+        font-size: 14px;
+      }
+
+      button {
+        border-color: transparent;
+        border-radius: 4px;
+        background-color: $blue;
+        color: $white;
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+        margin-top: 25px;
+      }
+    }
+
+    &--description {
+      padding: 20px;
+      width: 70%;
+
+      &-text {
+        white-space: pre-line;
+      }
+    }
+  }
+}
+
+@media screen  and (max-width: 480px) {
+  :host {
+    width: 90%;
+
+    .item-card {
+      &--image {
+        width: 100%;
+      }
+  
+      &--details {
+        flex-direction: column;
+        align-items: center;
+      &-container {
+        width: 90%;
+      }
+        &-price {
+          justify-content: center;
+        }
+    
+        &-title,
+        &-condition { 
+          text-align: center;
+        }
+      }
+
+      &--description {
+        width: 90%;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<div class="item-card">
+  <div class="item-card--details">
+    <img [src]="item.picture" [alt]="item.title" class="item-card--image">
+    <div class="item-card--details-container">
+      <h3 class="item-card--details-condition">{{ item.condition | itemCondition }} - {{ item.sold_quantity | number: '1.0-0':'es-AR' }} vendidos</h3>
+      <h2 class="item-card--details-title">{{ item.title }}</h2>
+      <h1 class="item-card--details-price">
+        {{ item.price.currency | currencySymbol }} {{ item.price.amount  | number: '1.0-0':'es-AR'  }}
+        <span>{{ getDecimals(item.price.decimals) }}</span>
+        <img *ngIf="item.free_shipping" src="assets/icons/icon-shipping.svg" alt="Free shipping icon" class="item-card--details-icon">
+      </h1>
+  
+      <button type="button">Comprar</button>
+    </div>
+  </div>
+  
+
+  <div class="item-card--description">
+    <h2 class="item-card--description-title">Descripción del producto</h2>
+    <p class="item-card--description-text">{{ item.description }}</p>
+  </div>
+</div>

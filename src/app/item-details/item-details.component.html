@@ -1,0 +1,13 @@
+<app-search-bar (searchAccion)="searchItems($event)"></app-search-bar>
+
+<div *ngIf="!isLoading && !hasError" class="item-details">
+  <app-item-card [item]="item"></app-item-card>
+</div>
+
+<div *ngIf="isLoading && !hasError" class="loader-container">
+  <div class="loader"></div>
+</div>
+
+<div class="error" *ngIf="!isLoading && hasError">
+  <p>Item no encontrado</p>
+</div>
